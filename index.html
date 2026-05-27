@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>عيد سعيد يا جنا يحبيبتي❤️</title>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>كل عيد وانتي طيبه و  مش بعيد يحبيبتي ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
 
@@ -18,181 +20,318 @@ font-family:'Cairo',sans-serif;
 }
 
 body{
+
 height:100vh;
 overflow:hidden;
+
 display:flex;
 justify-content:center;
 align-items:center;
+
 background:
-radial-gradient(circle at top,#ff2d75 0%,#190014 45%,#000 100%);
-position:relative;
+linear-gradient(-45deg,
+#000000,
+#1a0010,
+#32001f,
+#14000d);
+
+background-size:400% 400%;
+
+animation:bg 10s ease infinite;
+
 }
 
-/* الخلفية */
-body::before{
-content:"";
-position:absolute;
-width:100%;
-height:100%;
-background:
-url('https://i.imgur.com/6Iej2c3.png');
-opacity:.15;
-animation: floatBg 20s linear infinite;
+/* حركة الخلفية */
+
+@keyframes bg{
+
+0%{
+background-position:0% 50%;
 }
 
-@keyframes floatBg{
-0%{transform:translateY(0);}
-100%{transform:translateY(-200px);}
+50%{
+background-position:100% 50%;
 }
 
-.container{
-position:relative;
-z-index:2;
-text-align:center;
-width:90%;
-max-width:420px;
-}<img src="https://i.postimg.cc/J0H6Y7r8/photo.jpg" alt="photojpg">
-
-/* الصورة */
-.photo{
-width:100%;
-border-radius:30px;
-overflow:hidden;
-cursor:pointer;
-position:relative;
-transition:.5s;
-box-shadow:
-0 0 30px rgba(255,0,100,.6),
-0 0 60px rgba(255,0,100,.3);
+100%{
+background-position:0% 50%;
 }
 
-.photo:hover{
-transform:scale(1.03);
 }
 
-.photo img{
-width:100%;
-display:block;
-}
-
-/* تأثير الجلو */
-.photo::after{
-content:"❤";
-position:absolute;
-bottom:15px;
-left:50%;
-transform:translateX(-50%);
-width:70px;
-height:70px;
-border-radius:50%;
-background:#ff2d75;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:35px;
-color:white;
-box-shadow:0 0 25px #ff2d75;
-animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-0%{transform:translateX(-50%) scale(1);}
-50%{transform:translateX(-50%) scale(1.1);}
-100%{transform:translateX(-50%) scale(1);}
-}
-
-/* النص */
-.message{
-margin-top:30px;
-padding:30px;
-border-radius:25px;
-background:rgba(255,255,255,.06);
-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,.15);
-color:white;
-font-size:30px;
-font-weight:700;
-line-height:1.8;
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-box-shadow:0 0 30px rgba(255,0,120,.25);
-}
-
-.message.show{
-opacity:1;
-transform:translateY(0);
-}
-
-.message span{
-display:block;
-margin-top:15px;
-font-size:38px;
-color:#ff7eb3;
-font-weight:900;
-text-shadow:0 0 15px #ff2d75;
-}
-
-/* قلوب متحركة */
+/* القلوب */
 
 .hearts{
-position:absolute;
+
+position:fixed;
 width:100%;
 height:100%;
 overflow:hidden;
-top:0;
-left:0;
 pointer-events:none;
+
 }
 
 .heart{
+
 position:absolute;
 bottom:-50px;
+
 color:#ff4f8b;
-font-size:20px;
-animation: rise linear infinite;
-opacity:.7;
+
+animation:rise linear forwards;
+
+opacity:.8;
+
 }
 
 @keyframes rise{
+
 0%{
 transform:translateY(0) scale(1);
 opacity:0;
 }
-30%{
+
+20%{
 opacity:1;
 }
+
 100%{
-transform:translateY(-120vh) scale(1.8);
+transform:translateY(-120vh) scale(2);
 opacity:0;
 }
+
 }
+
+/* الكونتينر */
+
+.container{
+
+position:relative;
+
+width:90%;
+max-width:430px;
+
+text-align:center;
+
+animation:float 5s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* العنوان */
 
 .title{
+
 color:white;
-font-size:55px;
-margin-bottom:25px;
+
+font-size:58px;
 font-weight:900;
-text-shadow:0 0 20px #ff2d75;
-animation: glow 2s infinite alternate;
+
+margin-bottom:20px;
+
+text-shadow:
+0 0 10px #ff4f8b,
+0 0 25px #ff4f8b,
+0 0 45px #ff4f8b;
+
+animation:flicker 2s infinite;
+
 }
 
-@keyframes glow{
+@keyframes flicker{
+
+0%,100%{
+opacity:1;
+}
+
+50%{
+opacity:.85;
+}
+
+}
+
+/* الصورة */
+
+.photo{
+
+width:260px;
+
+margin:auto;
+
+border-radius:30px;
+
+overflow:hidden;
+
+cursor:pointer;
+
+position:relative;
+
+transition:.5s;
+
+box-shadow:
+0 0 20px #ff2d75,
+0 0 50px rgba(255,0,120,.5);
+
+}
+
+.photo:hover{
+
+transform:scale(1.05);
+
+}
+
+.photo img{
+
+width:100%;
+display:block;
+
+}
+
+/* تأثير القلب */
+
+.photo::after{
+
+content:"❤";
+
+position:absolute;
+
+bottom:12px;
+left:50%;
+
+transform:translateX(-50%);
+
+width:65px;
+height:65px;
+
+border-radius:50%;
+
+background:#ff2d75;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:30px;
+color:white;
+
+box-shadow:0 0 20px #ff2d75;
+
+animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+transform:translateX(-50%) scale(1);
+}
+
+50%{
+transform:translateX(-50%) scale(1.12);
+}
+
+100%{
+transform:translateX(-50%) scale(1);
+}
+
+}
+
+/* النص */
+
+.message{
+
+margin-top:30px;
+
+padding:25px;
+
+min-height:240px;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.15);
+
+backdrop-filter:blur(12px);
+
+font-size:35px;
+font-weight:900;
+
+line-height:2;
+
+color:white;
+
+text-shadow:
+0 0 8px #ff7aa8,
+0 0 20px #ff2d75;
+
+animation:textShake .12s infinite alternate;
+
+}
+
+@keyframes textShake{
+
 from{
-text-shadow:0 0 15px #ff2d75;
+transform:translateX(-1px);
 }
+
 to{
-text-shadow:0 0 35px #ff9dc5;
+transform:translateX(1px);
 }
+
 }
+
+/* المؤشر */
+
+.cursor{
+
+display:inline-block;
+
+color:#ff9fc3;
+
+animation:blink .7s infinite;
+
+}
+
+@keyframes blink{
+
+50%{
+opacity:0;
+}
+
+}
+
+/* اضغطي */
 
 .click{
+
 margin-top:15px;
-color:#ffd2e3;
-font-size:20px;
+
+font-size:22px;
+
+color:#ffd1e1;
+
+text-shadow:0 0 10px #ff4f8b;
+
 }
 
 </style>
+
 </head>
 
 <body>
@@ -205,25 +344,27 @@ font-size:20px;
 عيد سعيد ❤️
 </div>
 
+<!-- الصورة -->
+
 <div class="photo" onclick="showMessage()">
 
-<!-- حط صورتك هنا -->
-<img src="photo.jpg" alt="photo">
+<!-- حط اسم صورتك هنا -->
+
+<img src="photo.jpg">
 
 </div>
 
 <div class="click">
-اضغطي على الصورة ✨
+اضغطي على الصوره يحياتي✨
 </div>
 
-<div class="message" id="msg">
+<!-- الرسالة -->
 
-كل سنه وانت طيبه يحبيبي  
-وعيد سعيد عليك وينعاد عليكي  
-وانتي ف بيتي ان شاء الله  
-وحشتيني اوي...
+<div class="message">
 
-<span>بحبك اوي ❤️❤️</span>
+<span id="typed"></span>
+
+<span class="cursor">|</span>
 
 </div>
 
@@ -231,15 +372,44 @@ font-size:20px;
 
 <script>
 
+/* النص */
+
+const text =
+"كل سنه وانت طيبه يحبيبتي وعيد سعيد عليكي وينعاد عليكي وانتي ف بيتي ان شاء الله... وحشتيني اوي ❤️❤️ بحبك اوي";
+
+let started = false;
+
 function showMessage(){
-document.getElementById("msg").classList.toggle("show");
+
+if(started) return;
+
+started = true;
+
+const typed = document.getElementById("typed");
+
+let i = 0;
+
+const interval = setInterval(()=>{
+
+typed.innerHTML += text.charAt(i);
+
+i++;
+
+if(i >= text.length){
+
+clearInterval(interval);
+
+}
+
+},70);
+
 }
 
 /* القلوب */
 
 const hearts = document.querySelector(".hearts");
 
-setInterval(() => {
+setInterval(()=>{
 
 const heart = document.createElement("div");
 
@@ -247,23 +417,26 @@ heart.classList.add("heart");
 
 heart.innerHTML = "❤";
 
-heart.style.left = Math.random() * 100 + "%";
-
-heart.style.animationDuration =
-(4 + Math.random() * 6) + "s";
+heart.style.left = Math.random()*100 + "%";
 
 heart.style.fontSize =
-(15 + Math.random() * 25) + "px";
+(15 + Math.random()*30) + "px";
+
+heart.style.animationDuration =
+(4 + Math.random()*5) + "s";
 
 hearts.appendChild(heart);
 
 setTimeout(()=>{
-heart.remove();
-},10000);
 
-},300);
+heart.remove();
+
+},9000);
+
+},250);
 
 </script>
 
 </body>
+
 </html>
